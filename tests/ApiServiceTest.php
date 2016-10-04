@@ -13,11 +13,9 @@ class ApiServiceTest extends TestCase
      */
     public function testListEmployee()
     {
-        $this->json('GET', '/api/employees')
+        $this->json('GET', '/api/employee')
             ->seeJsonStructure([
-                'data' => [
-                    ['id', 'name', 'position', 'city', 'email', 'department', 'avatar']
-                ]
+                ['id', 'name', 'position', 'city', 'email', 'department', 'avatar']
             ]);
     }
 }
