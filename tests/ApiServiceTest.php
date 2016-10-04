@@ -17,5 +17,5 @@ class ApiServiceTest extends TestCase
             ->seeJsonStructure([
                 ['id', 'name', 'position', 'city', 'email', 'department', 'avatar']
             ]);
-    }
+    }    
 }

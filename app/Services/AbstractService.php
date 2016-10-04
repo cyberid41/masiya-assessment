@@ -4,21 +4,36 @@ namespace App\Services;
 
 class AbstractService {
 
-    protected $client;
-
     protected $API_URL = "http://rimbunesia.com/tes-masiya/data.xml";
 
-    public function getListEmployee(){
+    public function getListEmployee($orderBy){
         try {
 
-            $list = xml_to_json($this->API_URL);
+            $employee = $this->getData();
 
-            return $list;
+            $sortArray = []; 
+
+            foreach($employee as $person){ 
+                foreach($person as $key=>$value){ 
+                    if(!isset($sortArray[$key])){ 
+                        $sortArray[$key] = array(); 
+                    } 
+                    $sortArray[$key][] = $value; 
+                } 
+            }
+
+            array_multisort($sortArray[($orderBy == null ? 'city' : $orderBy)],SORT_ASC,$employee);
+
+            return $employee;
 
         } catch (\Exception $e) {
             
             return $e;
         }
+    }
+
+    public function getData(){
+         return xml_to_json($this->API_URL);
     }
 
 }
