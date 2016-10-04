@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\AbstractService;
+use App\Services\ApiService;
 
 class EmployeeController extends Controller
 {
     protected $service;
 
-    public function __construct(AbstractService $service)
+    public function __construct(ApiService $service)
     {
         $this->service = $service;
     }
@@ -17,7 +17,7 @@ class EmployeeController extends Controller
     public function index(Request $request)
     {
         $orderBy = $request->orderBy;
-        
+
         return $this->service->getListEmployee($orderBy);
     }
     

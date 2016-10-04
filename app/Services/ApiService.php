@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class AbstractService {
+class ApiService {
 
     protected $API_URL = "http://rimbunesia.com/tes-masiya/data.xml";
 
