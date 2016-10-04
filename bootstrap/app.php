@@ -41,6 +41,9 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+// require customs helpers
+require_once __DIR__ . '/../app/helpers.php';
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
