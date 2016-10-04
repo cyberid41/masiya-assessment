@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ApiServiceTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Can get list employee
      *
      * @return void
      */
