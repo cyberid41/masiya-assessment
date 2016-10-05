@@ -55,3 +55,43 @@ if (!function_exists('json')) {
         return $mol;
     }
 }
+
+if (!function_exists('get_status')) {
+
+    function get_status($status)
+    {
+        switch ($status) {
+            case 1:
+                return "Masuk";
+                break;
+            case 2:
+                return "Cuti";
+                break;
+            case 3:
+                return "Libur";
+                break;
+            default:
+                return "Masuk";
+        }
+    }
+}
+
+if (!function_exists('get_status_color')) {
+
+    function get_status_color($status)
+    {
+        switch ($status) {
+            case 1:
+                return "#659330";
+                break;
+            case 2:
+                return "#D74456";
+                break;
+            case 3:
+                return "#C1C1C1";
+                break;
+            default:
+                return "#659330";
+        }
+    }
+}

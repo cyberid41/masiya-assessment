@@ -1,91 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- jvectormap -->
+  <!-- Theme style -->
+  <link rel="stylesheet" href="css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="css/skin-blue-light.min.css">
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Custom Tabs (Pulled to the right) -->
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs pull-right" >
+              <li><a href="#department" data-toggle="tab">Department</a></li>
+              <li class="active"><a href="#city" data-toggle="tab">City</a></li>
+              <li class="pull-left header"> Person</li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="city">
+                <div class="box-body table-responsive no-padding">  
+                  <table class="table no-padding">
+                    <tr style="background-color:#2EBCD2;color:#FFFFFF">
+                      <th>Name</th>
+                      <th>City</th>
+                      <th>Department</th>
+                      <th style="width: 80px">Status</th>
+                    </tr>
+                    @foreach($cities as $key => $rows)
+                      <tr>
+                        <td colspan="4" style="background-color:#25ADC2;color:#FFFFFF"><strong>{!! $key !!}</strong></td>
+                        @foreach($rows as $key => $row)
+                          <tr>
+                            <td><strong>{!! $row['name'] !!}</strong><br>{!! $row['position'] !!}</td>
+                            <td>{!! $row['city'] !!}</td>
+                            <td>{!! $row['department'] !!}</td>
+                            <td><span class="badge" style="background-color:{!! get_status_color($row['status']) !!}; padding:6px;">{!! get_status($row['status']) !!}</span></td>
+                          </tr>
+                        @endforeach
+                      </tr>
+                    @endforeach
+                  </table>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="department">
+                <div class="box-body table-responsive no-padding">  
+                  <table class="table no-padding">
+                    <tr style="background-color:#2EBCD2;color:#FFFFFF">
+                      <th>Name</th>
+                      <th>City</th>
+                      <th>Department</th>
+                      <th style="width: 80px">Status</th>
+                    </tr>
+                    @foreach($departments as $key => $rows)
+                      <tr>
+                        <td colspan="4" style="background-color:#25ADC2;color:#FFFFFF"><strong>{!! $key !!}</strong></td>
+                        @foreach($rows as $key => $row)
+                          <tr>
+                            <td><strong>{!! $row['name'] !!}</strong><br>{!! $row['position'] !!}</td>
+                            <td>{!! $row['city'] !!}</td>
+                            <td>{!! $row['department'] !!}</td>
+                            <td><span class="badge" style="background-color:{!! get_status_color($row['status']) !!}; padding:6px;">{!! get_status($row['status']) !!}</span></td>
+                          </tr>
+                        @endforeach
+                      </tr>
+                    @endforeach
+                  </table>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+              </div>
+              <!-- /.tab-pane -->
             </div>
+            <!-- /.tab-content -->
+          </div>
+          <!-- nav-tabs-custom -->
         </div>
-    </body>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="js/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="js/bootstrap.min.js"></script>
+</body>
 </html>

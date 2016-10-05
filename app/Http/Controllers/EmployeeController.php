@@ -14,11 +14,12 @@ class EmployeeController extends Controller
         $this->service = $service;
     }
 
-    public function index(Request $request)
+    public function index()
     {
-        $orderBy = $request->orderBy;
+        $cities = $this->service->getListEmployee('city');
+        $departments = $this->service->getListEmployee('department');
 
-        return $this->service->getListEmployee($orderBy);
+        return view('welcome',['cities' => $cities,'departments' => $departments]);
     }
     
 }
