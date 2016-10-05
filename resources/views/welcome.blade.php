@@ -28,9 +28,6 @@
     .nav-tabs > li {
       border-top: 3px none transparent !important;
     }
-    th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-      border-top: 1px none #f4f4f4;
-    } 
   </style>
 </head>
 <body class="hold-transition skin-blue-light sidebar-mini">
