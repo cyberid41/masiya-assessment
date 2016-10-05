@@ -88,7 +88,7 @@ if (!function_exists('get_status_color')) {
                 return "#D74456";
                 break;
             case 3:
-                return "#C1C1C1";
+                return "#9B9B9B";
                 break;
             default:
                 return "#659330";
