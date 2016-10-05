@@ -10,25 +10,39 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="css/AdminLTE.min.css">
-  <link rel="stylesheet" href="css/skin-blue-light.min.css">
-
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <style>
+    .nav-tabs-custom li.active > a {
+      background-color:#2EBCD2 !important;
+      color:#FFFFFF !important;
+    }
+    .nav-tabs-custom li > a {
+      background-color:#E8E8E8 !important;
+      color:#9B9B9B !important;
+    }
+    .nav-tabs > li {
+      border-top: 3px none transparent !important;
+    }
+    th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+      border-top: 1px none #f4f4f4;
+    } 
+  </style>
 </head>
 <body class="hold-transition skin-blue-light sidebar-mini">
-      <div class="row">
+<div class="row">
         <div class="col-md-12">
           <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs pull-right" >
-              <li><a href="#department" data-toggle="tab">Department</a></li>
-              <li class="active"><a href="#city" data-toggle="tab">City</a></li>
+            <ul class="nav nav-tabs pull-right" style="border-bottom-width: 0px;">
+              <li><a href="#department" data-toggle="tab"><strong>By Department</strong></a></li>
+              <li class="active" style="margin-right: -2px;margin-bottom:-1px;"><a href="#city" data-toggle="tab"><strong>By City</strong></a></li>
               <li class="pull-left header"> Person</li>
             </ul>
-            <div class="tab-content">
+            <div class="tab-content" style="padding: 0px;">
               <div class="tab-pane active" id="city">
                 <div class="box-body table-responsive no-padding">  
                   <table class="table no-padding">
