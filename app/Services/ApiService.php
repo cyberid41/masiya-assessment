@@ -8,6 +8,7 @@ class ApiService {
 
     public function getListEmployee($orderBy){
         try {
+            $order = ($orderBy == null ? 'city' : $orderBy);
 
             $employee = $this->getData();
 
@@ -22,9 +23,9 @@ class ApiService {
                 } 
             }
 
-            array_multisort($sortArray[($orderBy == null ? 'city' : $orderBy)],SORT_ASC,$employee);
+            array_multisort($sortArray[$order],SORT_ASC,$employee);
 
-            return $employee;
+            return $this->_group_by($employee,$order);
 
         } catch (\Exception $e) {
             
@@ -34,6 +35,14 @@ class ApiService {
 
     public function getData(){
          return xml_to_json($this->API_URL);
+    }
+
+    function _group_by($array, $key) {
+        $return = [];
+        foreach($array as $val) {
+            $return[$val[$key]][] = $val;
+        }
+        return $return;
     }
 
 }
