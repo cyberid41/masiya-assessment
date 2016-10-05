@@ -38,8 +38,8 @@
         <div class="col-md-12">
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs pull-right" style="border-bottom-width: 0px;">
-              <li><a href="#department" data-toggle="tab"><strong>By Department</strong></a></li>
-              <li class="active" style="margin-right: -2px;margin-bottom:-1px;"><a href="#city" data-toggle="tab"><strong>By City</strong></a></li>
+              <li><a href="#department" data-toggle="tab">By Department</a></li>
+              <li class="active" style="margin-right: -2px;margin-bottom:-1px;"><a href="#city" data-toggle="tab">By City</a></li>
               <li class="pull-left header"> Person</li>
             </ul>
             <div class="tab-content" style="padding: 0px;">
